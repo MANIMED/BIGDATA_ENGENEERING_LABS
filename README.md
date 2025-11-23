@@ -38,7 +38,7 @@ hadoop jar HadoopFileStatut.jar R /user/hadoop/test.txt
 
 ---
 
-# Lab 3 – MapReduce : Calcul du nombre d’occurrences de mots
+# Lab 2 – MapReduce : Calcul du nombre d’occurrences de mots
 
 Ce laboratoire a pour objectif de développer un programme **MapReduce** en Java pour Hadoop, permettant de calculer le nombre d’occurrences de chaque mot présent dans un fichier texte.
 
@@ -121,11 +121,96 @@ Cash         10
 hdfs dfs -rm -r /ResultAchat
 ```
 
+
+
+# LAB 3 = Projet Kafka - Production et Consommation de Messages
+
+##  Description
+
+Ce projet illustre l'utilisation de **Apache Kafka** pour la production et la consommation de messages en Java, dans un environnement Docker.
+
+J'ai développé quatre classes principales :
+
+- **EventProducer** : Produit 10 messages standards dans une boucle `for`.
+- **EventConsumer** : Consomme les messages standards produits.
+- **PaiementProducer** : Produit un message de paiement en saisissant le nom de l'étudiant et le montant.
+- **PaiementConsumer** : Consomme les paiements des étudiants.
+
 ---
 
-## Auteur
+##  Exécution du projet
 
-Travaux réalisés dans le cadre du cours **Big Data – Hadoop & MapReduce**.
+Pour lancer l'application, utilisez la commande suivante :
+
+```bash
+java -jar hadoop.jar
+```
+
+Une fois exécutée, l'application affiche le menu suivant :
+
+```
+Bonjour, Nous allons exploiter KAFKA
+
+1 - Si vous voulez produire un message standard
+2 - Si vous voulez produire un paiement d'un étudiant
+3 - Si vous voulez Consommer un message standard
+4 - Si vous voulez Consommer les paiements des étudiants
+```
+
+L'utilisateur choisit l'option souhaitée pour exécuter l'action correspondante.
+
+---
+
+##  Utilisation avec Docker
+
+Pour que le système fonctionne correctement :
+
+- Il est nécessaire d'ouvrir **deux terminaux Docker** :
+  - Un terminal pour la **production des messages**
+  - Un autre terminal pour la **consommation des messages**
+
+Cela permet d'observer en temps réel l'échange entre producteurs et consommateurs Kafka.
+
+---
+
+##  Architecture générale
+
+```
+[Producer] ---> Kafka Broker ---> [Consumer]
+```
+
+Deux types de flux sont gérés :
+- Messages standards
+- Paiements des étudiants
+
+---
+
+##  Objectifs atteints
+
+- Mise en place de Kafka avec Docker
+- Implémentation de producteurs et consommateurs Java
+- Gestion de plusieurs types de messages
+- Interaction via un menu console
+
+---
+
+##  Structure des classes
+
+```
+EventProducer.java
+EventConsumer.java
+PaiementProducer.java
+PaiementConsumer.java
+```
+
+---
+
+##  Remarques
+
+- Kafka fonctionne sur le port 9092 exposé dans Docker.
+- Assurez-vous que le broker Kafka est bien démarré avant l'exécution.
+- Chaque terminal Docker joue un rôle spécifique (producer / consumer).
+
 
 
 # LAB 3 = Projet Kafka - Production et Consommation de Messages
@@ -216,3 +301,5 @@ PaiementConsumer.java
 - Assurez-vous que le broker Kafka est bien démarré avant l'exécution.
 - Chaque terminal Docker joue un rôle spécifique (producer / consumer).
 
+=======
+>>>>>>> 4ab935a2e5395ed79cd1e982bd8a4798f892d667
