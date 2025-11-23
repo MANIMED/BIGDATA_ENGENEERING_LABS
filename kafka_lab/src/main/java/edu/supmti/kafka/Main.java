@@ -9,6 +9,7 @@ public class Main {
         System.out.println("2 - Si vous voulez produire un paiement d'un étudiant");
         System.out.println("3 - Si vous voulez Consommer un message standard");
         System.out.println("4 - Si vous voulez Consommer les paiements des étudiants");
+        System.out.println("5 - Tester le Mode Streaming");
 
         Scanner scanner = new Scanner(System.in);
         int reponse = scanner.nextInt();
@@ -24,6 +25,9 @@ public class Main {
                 break;
             case 4 :
                 PaiementConsumer.Consume();
+                break;
+            case 5 :
+                WordCount.Start();
                 break;
             default:
                 System.out.println("Le numéro est incorrecte");
